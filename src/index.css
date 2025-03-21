@@ -1,0 +1,11 @@
+#Create{
+    background-color: aqua;
+    width: 50%;
+}
+.input{
+    border-radius: 10px;
+    width: 100%;
+}
+.to-contact{
+    display: flex;
+}
