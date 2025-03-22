@@ -44,7 +44,7 @@ const CreateContact = () => {
       <input className="input"
         value={newContact.email}
         onChange={(e) => setNewContact({...newContact, email: e.target.value})}
-        type="text"
+        type="email"
         placeholder="Enter email"></input>
       <p><strong>Address</strong></p>
       <input className="input"

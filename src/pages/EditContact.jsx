@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import useGlobalReducer from '../hooks/useGlobalReducer'
-import ContactList from './ContactList'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
 
 const EditContact = () => {
   const navigate = useNavigate()
@@ -24,8 +22,8 @@ const EditContact = () => {
     })
       .then((response) => { return response.json()})
       .then((data)=>{
-        dispatch({
-          type: "save_contact",
+        dispatch({         
+          type: "save_contacts",
           payload: { contactos : data.contacts }
         })
       })
@@ -33,7 +31,6 @@ const EditContact = () => {
   }
 
   console.log(singleId);
-
 
   return (
     <div className="container text-center mt-5" id="Create">
@@ -65,7 +62,7 @@ const EditContact = () => {
       <button className="btn btn-success mt-3"
         onClick={() => {
           return (
-            editContact,
+            editContact(),
             navigate("/")
           )
         }}>Guardar</button>

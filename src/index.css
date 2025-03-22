@@ -9,3 +9,27 @@
 .to-contact{
     display: flex;
 }
+.contacto{
+    display: flex;
+    align-items: center;
+    background-color:darkgray;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: solid;
+}
+.boton{
+    display: flex;
+    justify-content: flex-end;
+}
+.foto{
+    border-radius: 50px;
+    width: 100px;
+    margin: 10px 10px 10px 10px;
+}
+.nombre{
+    font-size: medium;
+}
+.icons{
+    padding-right: 20px;
+}
