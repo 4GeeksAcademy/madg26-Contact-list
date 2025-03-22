@@ -9,7 +9,7 @@ const CreateContact = () => {
     email: "",
     address: ""
   })
-
+  const navigate = useNavigate();
 
   function addContact() {
     fetch("https://playground.4geeks.com/contact/agendas/madg26/contacts", {
@@ -24,7 +24,7 @@ const CreateContact = () => {
       })
       .catch((err) => { return err })
   }
-  const navigate = useNavigate();
+  
 
   return (
     <div className="container text-center mt-5" id="Create">

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import useGlobalReducer from '../hooks/useGlobalReducer'
 
 const ContactList = () => {
-  const [contactos, setContactos] = useState([])
+  const {store, dispatch} = useGlobalReducer()
 
   function getAgendas() {
     fetch("https://playground.4geeks.com/contact/agendas/madg26/contacts")
@@ -10,7 +11,12 @@ const ContactList = () => {
       .then((data) => {
         console.log(data);
 // invocar una funcion en el dispatch 
-        return setContactos(data.contacts)
+        return (
+          dispatch({
+            type: "save_contacts", 
+            payload: { contactos : data.contacts }
+          })
+        )
       })
       .catch((err) => { return err })
   }
@@ -21,13 +27,18 @@ const ContactList = () => {
     <div className="container text-center">
       <h1>Hola desde contact list!</h1>
       <ul>
-        {contactos.map((value, index, array) => {
+        {store.listContact.map((value, index, array) => {
           return (
             <li key={index}>
               {value.name}
               {value.phone}
               {value.email}
               {value.address}
+
+              <Link to= {`/edit-contact/${value.id}`} >
+              <button className="btn btn-danger">Editar</button>
+            
+              </Link>
 
             </li>
           )
